@@ -1,0 +1,19 @@
+# Turbo cache
+.turbo/
+
+# Node
+node_modules/
+dist/
+build/
+
+# Python
+__pycache__/
+venv/
+
+# Env
+.env
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
