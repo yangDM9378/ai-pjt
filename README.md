@@ -76,11 +76,11 @@ ai-projects/
 
 ### **📦 Backend**
 
-- [x] LangChain + Chroma + OpenAI 세팅
-- [x] PDF 로더 및 텍스트 분할
-- [x] 문서 임베딩 및 벡터 저장
-- [x] RetrievalQA 체인 구성
-- [x] MCP 도구 등록 및 실행
+- [ ] LangChain + Chroma + OpenAI 세팅
+- [ ] PDF 로더 및 텍스트 분할
+- [ ] 문서 임베딩 및 벡터 저장
+- [ ] RetrievalQA 체인 구성
+- [ ] MCP 도구 등록 및 실행
 - [ ] REST API 연동 (프론트용)
 
 ### **🧩 Frontend**
@@ -88,9 +88,9 @@ ai-projects/
 - [x] Vite + React + TS 초기 세팅
 - [x] Turborepo 기반 공용 패키지 구성
 - [x] Emotion 스타일 구조 적용
-- [ ] PDF 업로드 UI 구현
-- [ ] 질문 입력 및 답변 출력 UI 구성
-- [ ] 관련 문서 추천 리스트 표시
+- [x] PDF 업로드 UI 구현
+- [x] 질문 입력 및 답변 출력 UI 구성
+- [x] 관련 문서 추천 리스트 표시
 
 ---
 
@@ -100,12 +100,14 @@ ai-projects/
 # Backend (LangChain + MCP)
 cd backend/pdf_server
 python -m venv venv
-venv\Scripts\activate
+venv/Scripts/activate
+or
+source venv/Scripts/activate
 pip install -r requirements.txt
 python app.py
 
 # Frontend (React)
 cd frontend
 npm install
-npm run dev
+npx turbo run dev --filter=pdf
 ```
