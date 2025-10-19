@@ -1,2 +1,1 @@
-export * from "./api";
-export {default as api} from "./axiosInstance"
+export {default as axiosAPI} from "./api/axiosInstance"
