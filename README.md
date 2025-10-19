@@ -52,22 +52,55 @@ LangChain + MCP + React 기반의 **AI 문서 분석 프로젝트 모노레포**
 ```
 ai-projects/
 ├── frontend/
-│ ├── apps/
-│ │ └── pdf/ # PDF Q&A 프론트엔드
-│ ├── packages/ # 공용 패키지
-│ │ ├── ui/
-│ │ ├── styles/
-│ │ └── utils/
-│ ├── turbo.json
-│ └── package.json
+│   ├── apps/
+│   │   └── pdf/                    # PDF Q&A 프론트엔드 (React + Vite)
+│   │       ├── src/
+│   │       │   ├── components/     # UI 컴포넌트 (UploadForm, ChatBox 등)
+│   │       │   ├── pages/          # 페이지 구성 (/pdf)
+│   │       │   ├── api/            # axios API (upload, ask 등)
+│   │       │   └── main.tsx
+│   │       ├── index.html
+│   │       ├── package.json
+│   │       └── tsconfig.json
+│   │
+│   ├── packages/                   # 공용 패키지
+│   │   ├── ui/                     # 공용 UI 컴포넌트 (Button, Modal 등)
+│   │   │   ├── src/
+│   │   │   │   ├── Button.tsx
+│   │   │   │   ├── Card.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
+│   │   │
+│   │   ├── styles/                 # 글로벌 스타일 & 테마
+│   │   │   ├── src/
+│   │   │   │   ├── GlobalStyle.tsx
+│   │   │   │   ├── theme.ts
+│   │   │   │   └── index.ts
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
+│   │   │
+│   │   └── utils/                  # 공용 유틸리티 (axios, hooks, helpers 등)
+│   │       ├── src/
+│   │       │   ├── api/
+│   │       │   │   └── axiosInstance.ts
+│   │       │   ├── hooks/
+│   │       │   │   └── useFetch.ts
+│   │       │   └── index.ts
+│   │       ├── package.json
+│   │       └── tsconfig.json
+│   │
+│   ├── turbo.json                  # Turborepo 파이프라인 설정
+│   └── package.json                # frontend 모노레포 루트
 │
-└── backend/
-├── pdf_server/ # LangChain + MCP 서버
-│ ├── app.py
-│ ├── rag_chain.py
-│ ├── requirements.txt
-│ └── venv/
-└── ...
+├── backend/
+│   └── pdf_server/
+│   │   ├── mcp_server.py           # MCP 프로토콜 서버 (IDE용)
+│   │   ├── api_server.py           # FastAPI REST 서버 (웹용)
+│   │   └── app.py                  # 두 서버 동시 실행 (thread 병렬 실행)
+│   └── venv
+|   └── .env
+└── README.md
 ```
 
 ---
@@ -76,12 +109,13 @@ ai-projects/
 
 ### **📦 Backend**
 
-- [ ] LangChain + Chroma + OpenAI 세팅
-- [ ] PDF 로더 및 텍스트 분할
-- [ ] 문서 임베딩 및 벡터 저장
-- [ ] RetrievalQA 체인 구성
-- [ ] MCP 도구 등록 및 실행
-- [ ] REST API 연동 (프론트용)
+- [x] LangChain + Chroma + OpenAI 세팅
+- [x] PDF 로더 및 텍스트 분할
+- [x] 문서 임베딩 및 벡터 저장
+- [x] RetrievalQA 체인 구성
+- [x] MCP 도구 등록 및 실행
+- [x] REST API 연동 (프론트용)
+- [ ] 다중 PDF 확장 및 우선순위 선택 기능
 
 ### **🧩 Frontend**
 
@@ -91,6 +125,7 @@ ai-projects/
 - [x] PDF 업로드 UI 구현
 - [x] 질문 입력 및 답변 출력 UI 구성
 - [x] 관련 문서 추천 리스트 표시
+- [ ] 다중 PDF 확장 및 우선순위 선택 기능
 
 ---
 
