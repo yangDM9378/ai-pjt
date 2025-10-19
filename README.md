@@ -56,8 +56,8 @@ ai-projects/
 │   │   └── pdf/                    # PDF Q&A 프론트엔드 (React + Vite)
 │   │       ├── src/
 │   │       │   ├── components/     # UI 컴포넌트 (UploadForm, ChatBox 등)
-│   │       │   ├── pages/          # 페이지 구성 (/pdf)
 │   │       │   ├── api/            # axios API (upload, ask 등)
+│   │       │   └── App.tsx
 │   │       │   └── main.tsx
 │   │       ├── index.html
 │   │       ├── package.json
@@ -84,8 +84,6 @@ ai-projects/
 │   │       ├── src/
 │   │       │   ├── api/
 │   │       │   │   └── axiosInstance.ts
-│   │       │   ├── hooks/
-│   │       │   │   └── useFetch.ts
 │   │       │   └── index.ts
 │   │       ├── package.json
 │   │       └── tsconfig.json
