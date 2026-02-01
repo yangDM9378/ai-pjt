@@ -131,12 +131,13 @@ ai-projects/
 
 ```bash
 # Backend (LangChain + MCP)
-cd backend/pdf_server
+cd backend
 python -m venv venv
 venv/Scripts/activate
 or
 source venv/Scripts/activate
 pip install -r requirements.txt
+cd pdf_server
 python app.py
 
 # Frontend (React)

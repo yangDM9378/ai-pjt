@@ -1,9 +1,9 @@
 from fastapi import FastAPI, File, UploadFile, Form
-from fastapi.middleware.cores import CORSMiddleware
-from lanchain_community.vectorstores import Chroma
-from lanchain_community.document_loaders import PyPDFLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.chains import RetrievalQA
+from fastapi.middleware.cors import CORSMiddleware
+from langchain_community.vectorstores import Chroma
+from langchain_community.document_loaders import PyPDFLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_classic.chains import RetrievalQA
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 import os
 from dotenv import load_dotenv
@@ -45,7 +45,7 @@ async def upload_pdf(file: UploadFile = File(...)):
 
 @app.post("/ask")
 async def ask_question(question: str = Form(...)):
-    if vectorstore in None:
+    if vectorstore is None:
         return {"error": "먼저 PDF를 업로드해주세요"}
     
     # OPENAI_API_KEY 명칭 사용시 명시 안해도 자동 적용 (api_key 인자 전달 필요)
@@ -57,6 +57,6 @@ async def ask_question(question: str = Form(...)):
     answer = qa_chain.run(question)
     return {"answer": answer}
 
-def run_fastapi():
+def run_openAI_api():
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=5000)
